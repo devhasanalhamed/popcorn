@@ -6,7 +6,7 @@ void main() {
     id: 1,
     title: 'title',
     backdropBath: 'backdropBath',
-    genderIds: [0],
+    genreIds: [0],
     overview: 'overview',
     voteAverage: 0.0,
   );
@@ -14,7 +14,7 @@ void main() {
     id: 1,
     title: 'title',
     backdropBath: 'backdropBath',
-    genderIds: [0],
+    genreIds: [0],
     overview: 'overview',
     voteAverage: 0.0,
   );
