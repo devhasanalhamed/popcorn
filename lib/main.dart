@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:popcorn/movies/domain/entity/movide.dart';
 
@@ -18,9 +20,9 @@ void main() {
     overview: 'overview',
     voteAverage: 0.0,
   );
-  print(movie == movie1);
-  print(movie.hashCode);
-  print(movie1.hashCode);
+  log('${movie == movie1}');
+  log('${movie.hashCode}');
+  log('${movie1.hashCode}');
   runApp(const MyApp());
 }
 
