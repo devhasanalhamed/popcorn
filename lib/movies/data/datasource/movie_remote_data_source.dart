@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:popcorn/core/error/exceptions.dart';
+import 'package:popcorn/core/network/error_message_model.dart';
 import 'package:popcorn/movies/data/models/movie_model.dart';
 
 class MovieRemoteDataSource {
@@ -10,7 +12,8 @@ class MovieRemoteDataSource {
       return List<MovieModel>.from((response.data['results'] as List)
           .map((e) => MovieModel.fromJson(e)));
     } else {
-      return [];
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
   }
 }
