@@ -1,4 +1,6 @@
-import 'package:popcorn/movies/domain/entity/movide.dart';
+import 'package:dartz/dartz.dart';
+import 'package:popcorn/core/error/failure.dart';
+import 'package:popcorn/movies/domain/entity/movie.dart';
 import 'package:popcorn/movies/domain/repository/base_movies_repository.dart';
 
 class GetTopRatedMoviesUseCase {
@@ -8,7 +10,7 @@ class GetTopRatedMoviesUseCase {
     required this.baseMoviesRepository,
   });
 
-  Future<List<Movie>> execute() async {
+  Future<Either<Failure, List<Movie>>> execute() async {
     return await baseMoviesRepository.getTopRatedMovies();
   }
 }
