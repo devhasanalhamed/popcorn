@@ -5,6 +5,6 @@ class ApiConstants {
   static const String nowPlayingMoviesUrl = '$movieUrl/now_playing?$apiKey';
   static const String popularMoviesUrl = '$movieUrl/popular?$apiKey';
   static const String topRatedMoviesUrl = '$movieUrl/top_rated?$apiKey';
-  static const String baseImageUrl = 'https://image.tmdb.org/t/p/w500';
+  static const String baseImageUrl = 'https://image.tmdb.org/t/p/original';
   static String imageUrl(String path) => '$baseImageUrl$path';
 }
