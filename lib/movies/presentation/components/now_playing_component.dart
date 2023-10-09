@@ -19,12 +19,21 @@ class NowPlayingComponent extends StatelessWidget {
         switch (state.nowPlayingMoviesState) {
           case RequestState.loading:
             return Shimmer.fromColors(
-              baseColor: Colors.grey.shade900,
+              baseColor: Colors.grey,
               highlightColor: Colors.white,
               child: Container(
                 width: double.infinity,
                 height: 400,
-                color: Colors.green,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.white54,
+                    width: 3,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Center(
+                  child: Text('Loading'),
+                ),
               ),
             );
           case RequestState.loaded:
@@ -118,8 +127,24 @@ class NowPlayingComponent extends StatelessWidget {
               ),
             );
           case RequestState.error:
-            return SizedBox(
+            return Container(
+              width: double.infinity,
               height: 400,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: const Color.fromARGB(255, 180, 35, 35),
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text(
+                  state.nowPlayingMessage,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             );
         }
       },
