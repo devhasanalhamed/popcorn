@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:popcorn/core/services/services_locator.dart';
+import 'package:popcorn/core/services/size_config.dart';
 import 'package:popcorn/movies/presentation/components/now_playing_component.dart';
 import 'package:popcorn/movies/presentation/components/popular_component.dart';
 import 'package:popcorn/movies/presentation/components/top_rated_component.dart';
@@ -13,6 +14,7 @@ class MoviesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return BlocProvider(
       create: (context) => sl<MoviesBloc>()
         ..add(GetNowPlayingMoviesEvent())
@@ -28,7 +30,8 @@ class MoviesScreen extends StatelessWidget {
               children: [
                 const NowPlayingComponent(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 8.0),
+                  height: SizeConfig.safeBlockVertical! * 5,
+                  margin: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -69,12 +72,8 @@ class MoviesScreen extends StatelessWidget {
                 ),
                 const PopularComponent(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(
-                    16.0,
-                    24.0,
-                    16.0,
-                    8.0,
-                  ),
+                  height: SizeConfig.safeBlockVertical! * 5,
+                  margin: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -114,7 +113,7 @@ class MoviesScreen extends StatelessWidget {
                   ),
                 ),
                 const TopRatedComponent(),
-                const SizedBox(height: 50.0),
+                SizedBox(height: SizeConfig.safeBlockVertical! * 4),
               ],
             ),
           ),
