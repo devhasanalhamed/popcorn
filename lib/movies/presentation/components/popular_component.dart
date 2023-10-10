@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:popcorn/core/network/api_constants.dart';
+import 'package:popcorn/core/services/size_config.dart';
 import 'package:popcorn/movies/presentation/controller/movies_bloc.dart';
 import 'package:popcorn/movies/presentation/controller/movies_state.dart';
 import 'package:shimmer/shimmer.dart';
@@ -12,11 +13,12 @@ class PopularComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return BlocBuilder<MoviesBloc, MoviesState>(builder: (context, state) {
       return FadeIn(
         duration: const Duration(milliseconds: 500),
         child: SizedBox(
-          height: 170.0,
+          height: SizeConfig.safeBlockVertical! * 20,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -40,7 +42,7 @@ class PopularComponent extends StatelessWidget {
                         baseColor: Colors.grey[850]!,
                         highlightColor: Colors.grey[800]!,
                         child: Container(
-                          height: 170.0,
+                          height: SizeConfig.safeBlockVertical! * 20,
                           width: 120.0,
                           decoration: BoxDecoration(
                             color: Colors.black,
