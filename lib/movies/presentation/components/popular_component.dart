@@ -12,8 +12,8 @@ class PopularComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MoviesBloc, MoviesState>(
-      builder: (context, state) => FadeIn(
+    return BlocBuilder<MoviesBloc, MoviesState>(builder: (context, state) {
+      return FadeIn(
         duration: const Duration(milliseconds: 500),
         child: SizedBox(
           height: 170.0,
@@ -57,7 +57,7 @@ class PopularComponent extends StatelessWidget {
             },
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
