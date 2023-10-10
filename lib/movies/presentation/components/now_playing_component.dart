@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:popcorn/core/network/api_constants.dart';
+import 'package:popcorn/core/services/size_config.dart';
 import 'package:popcorn/core/utils/enums.dart';
 import 'package:popcorn/movies/presentation/controller/movies_bloc.dart';
 import 'package:popcorn/movies/presentation/controller/movies_state.dart';
@@ -14,6 +15,7 @@ class NowPlayingComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return BlocBuilder<MoviesBloc, MoviesState>(
       builder: (context, state) {
         switch (state.nowPlayingMoviesState) {
@@ -23,8 +25,16 @@ class NowPlayingComponent extends StatelessWidget {
               highlightColor: Colors.amber,
               child: Container(
                 width: double.infinity,
-                height: 400,
-                color: Colors.green,
+                height: SizeConfig.safeBlockVertical! * 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    width: 3,
+                  ),
+                ),
+                child: const Center(
+                  child: Text('Loading'),
+                ),
               ),
             );
           case RequestState.loaded:
@@ -32,7 +42,7 @@ class NowPlayingComponent extends StatelessWidget {
               duration: const Duration(milliseconds: 500),
               child: CarouselSlider(
                 options: CarouselOptions(
-                  height: 400.0,
+                  height: SizeConfig.safeBlockVertical! * 45,
                   viewportFraction: 1.0,
                   onPageChanged: (index, reason) {},
                 ),
@@ -64,7 +74,7 @@ class NowPlayingComponent extends StatelessWidget {
                             },
                             blendMode: BlendMode.dstIn,
                             child: CachedNetworkImage(
-                              height: 560.0,
+                              height: SizeConfig.safeBlockVertical! * 45,
                               imageUrl:
                                   ApiConstants.imageUrl(item.backdropPath),
                               fit: BoxFit.cover,
@@ -120,7 +130,23 @@ class NowPlayingComponent extends StatelessWidget {
           case RequestState.error:
             return Container(
               width: double.infinity,
-              height: 400,
+              height: SizeConfig.safeBlockVertical! * 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  width: 3,
+                  color: const Color.fromARGB(255, 180, 40, 40),
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  state.nowPlayingMessage,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 180, 40, 40),
+                  ),
+                ),
+              ),
             );
         }
       },
