@@ -4,7 +4,7 @@ import 'package:popcorn/core/usecase/base_usecase.dart';
 import 'package:popcorn/movies/data/models/movie_model.dart';
 import 'package:popcorn/movies/domain/repository/base_movies_repository.dart';
 
-class GetNowPlayingMoviesUseCase extends UseCase<List<MovieModel>> {
+class GetNowPlayingMoviesUseCase extends BaseUseCase<List<MovieModel>> {
   final BaseMoviesRepository baseMoviesRepository;
 
   GetNowPlayingMoviesUseCase({
