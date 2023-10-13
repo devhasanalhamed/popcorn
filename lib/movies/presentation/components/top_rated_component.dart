@@ -21,7 +21,26 @@ class TopRatedComponent extends StatelessWidget {
       builder: (context, state) {
         switch (state.topRatedMoviesState) {
           case RequestState.loading:
-            return const Text('loading');
+            return Shimmer.fromColors(
+              baseColor: Colors.grey.shade800,
+              highlightColor: Colors.amber,
+              child: Container(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                  child: Container(
+                    height: SizeConfig.safeBlockVertical! * 20,
+                    width: 120.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+              ),
+            );
           case RequestState.loaded:
             return FadeIn(
               duration: const Duration(milliseconds: 500),
