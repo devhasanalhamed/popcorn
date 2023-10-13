@@ -29,13 +29,49 @@ class NowPlayingComponent extends StatelessWidget {
                 width: double.infinity,
                 height: SizeConfig.safeBlockVertical! * 45,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    width: 3,
+                  borderRadius: BorderRadius.circular(0),
+                  border: const Border.symmetric(
+                    horizontal: BorderSide(
+                      width: 3,
+                    ),
+                    vertical: BorderSide(
+                      width: 0,
+                    ),
                   ),
                 ),
-                child: const Center(
-                  child: Text('Loading'),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 120,
+                            height: 10,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0),
+                      child: Container(
+                        width: 200,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );
