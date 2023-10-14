@@ -21,21 +21,30 @@ class PopularComponent extends StatelessWidget {
       builder: (context, state) {
         switch (state.popularMoviesState) {
           case RequestState.loading:
-            return Shimmer.fromColors(
-              baseColor: Colors.grey.shade800,
-              highlightColor: Colors.amber,
-              child: Container(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+            return SizedBox(
+              height: SizeConfig.safeBlockVertical! * 20,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: (SizeConfig.screenWidth! ~/ 120) + 1,
+                itemBuilder: (context, index) => Shimmer.fromColors(
+                  baseColor: Colors.grey.shade800,
+                  highlightColor: Colors.amber,
                   child: Container(
-                    height: SizeConfig.safeBlockVertical! * 20,
-                    width: 120.0,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: ClipRRect(
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(8.0)),
+                      child: Container(
+                        height: SizeConfig.safeBlockVertical! * 20,
+                        width: 120.0,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ),
