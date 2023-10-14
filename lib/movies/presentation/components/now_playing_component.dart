@@ -49,7 +49,7 @@ class NowPlayingComponent extends StatelessWidget {
                         children: [
                           Container(
                             width: 120,
-                            height: 10,
+                            height: 11,
                             decoration: BoxDecoration(
                               color: Colors.red,
                               shape: BoxShape.rectangle,
