@@ -3,6 +3,7 @@ import 'package:popcorn/core/error/exceptions.dart';
 import 'package:popcorn/core/error/failure.dart';
 import 'package:popcorn/movies/data/datasource/movie_remote_data_source.dart';
 import 'package:popcorn/movies/data/models/movie_model.dart';
+import 'package:popcorn/movies/domain/entity/movie_details.dart';
 import 'package:popcorn/movies/domain/repository/base_movies_repository.dart';
 
 class MoviesRepository extends BaseMoviesRepository {
@@ -43,5 +44,11 @@ class MoviesRepository extends BaseMoviesRepository {
       return Left(
           ServerFailure(message: failure.errorMessageModel.statusMessage));
     }
+  }
+
+  @override
+  Future<Either<Failure, MovieDetails>> getMovieDetails() {
+    // TODO: implement getMovieDetails
+    throw UnimplementedError();
   }
 }
