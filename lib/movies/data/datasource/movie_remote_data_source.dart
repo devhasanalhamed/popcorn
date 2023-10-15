@@ -15,7 +15,7 @@ abstract class BaseMoviesRemoteDataSource {
 class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
   @override
   Future<List<MovieModel>> getNowPlayingMovies() async {
-    final response = await Dio().get(ApiConstants.nowPlayingMoviesUrl);
+    final response = await Dio().get(ApiConstants.nowPlayingMoviesPath);
     if (response.statusCode == 200) {
       return List<MovieModel>.from((response.data['results'] as List)
           .map((e) => MovieModel.fromJson(e)));
@@ -27,7 +27,7 @@ class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
 
   @override
   Future<List<MovieModel>> getPopularMovies() async {
-    final response = await Dio().get(ApiConstants.popularMoviesUrl);
+    final response = await Dio().get(ApiConstants.popularMoviesPath);
     if (response.statusCode == 200) {
       return List<MovieModel>.from((response.data['results'] as List)
           .map((e) => MovieModel.fromJson(e)));
@@ -39,7 +39,7 @@ class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
 
   @override
   Future<List<MovieModel>> getTopRatedMovies() async {
-    final response = await Dio().get(ApiConstants.topRatedMoviesUrl);
+    final response = await Dio().get(ApiConstants.topRatedMoviesPath);
     if (response.statusCode == 200) {
       return List<MovieModel>.from((response.data['results'] as List)
           .map((e) => MovieModel.fromJson(e)));
