@@ -4,7 +4,8 @@ import 'package:popcorn/core/usecase/base_usecase.dart';
 import 'package:popcorn/movies/data/models/movie_model.dart';
 import 'package:popcorn/movies/domain/repository/base_movies_repository.dart';
 
-class GetNowPlayingMoviesUseCase extends BaseUseCase<List<MovieModel>> {
+class GetNowPlayingMoviesUseCase
+    extends BaseUseCase<List<MovieModel>, NoParameters> {
   final BaseMoviesRepository baseMoviesRepository;
 
   GetNowPlayingMoviesUseCase({
@@ -12,7 +13,8 @@ class GetNowPlayingMoviesUseCase extends BaseUseCase<List<MovieModel>> {
   });
 
   @override
-  Future<Either<Failure, List<MovieModel>>> call() async {
+  Future<Either<Failure, List<MovieModel>>> call(
+      NoParameters parameters) async {
     return await baseMoviesRepository.getNowPlayingMovies();
   }
 }
