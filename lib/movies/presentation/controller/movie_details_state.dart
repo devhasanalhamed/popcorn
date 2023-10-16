@@ -5,21 +5,34 @@ class MovieDetailsState extends Equatable {
     this.movieDetails,
     this.movieDetailsState = RequestState.loading,
     this.movieDetailsMessage = '',
+    this.recommendations = const [],
+    this.recommendationsState = RequestState.loading,
+    this.recommendationsMessage = '',
   });
 
   final MovieDetails? movieDetails;
   final RequestState movieDetailsState;
   final String movieDetailsMessage;
+  final List<Recommendations> recommendations;
+  final RequestState recommendationsState;
+  final String recommendationsMessage;
 
   MovieDetailsState copyWith({
     MovieDetails? movieDetails,
     RequestState? movieDetailsState,
     String? movieDetailsMessage,
+    List<Recommendations>? recommendations,
+    RequestState? recommendationsState,
+    String? recommendationsMessage,
   }) {
     return MovieDetailsState(
       movieDetails: movieDetails ?? this.movieDetails,
       movieDetailsState: movieDetailsState ?? this.movieDetailsState,
       movieDetailsMessage: movieDetailsMessage ?? this.movieDetailsMessage,
+      recommendations: recommendations ?? this.recommendations,
+      recommendationsState: recommendationsState ?? this.recommendationsState,
+      recommendationsMessage:
+          recommendationsMessage ?? this.recommendationsMessage,
     );
   }
 
@@ -28,5 +41,8 @@ class MovieDetailsState extends Equatable {
         movieDetails,
         movieDetailsState,
         movieDetailsMessage,
+        recommendations,
+        recommendationsState,
+        recommendationsMessage
       ];
 }
