@@ -2,8 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:popcorn/core/error/failure.dart';
 import 'package:popcorn/movies/data/models/movie_model.dart';
 import 'package:popcorn/movies/domain/entity/movie_details.dart';
-import 'package:popcorn/movies/domain/entity/recomendations.dart';
+import 'package:popcorn/movies/domain/entity/recommendations.dart';
 import 'package:popcorn/movies/domain/usecase/get_movie_details_usecase.dart';
+import 'package:popcorn/movies/domain/usecase/get_recommendations.dart';
 
 //! this is called contract
 abstract class BaseMoviesRepository {
@@ -13,7 +14,9 @@ abstract class BaseMoviesRepository {
 
   Future<Either<Failure, List<MovieModel>>> getTopRatedMovies();
 
-  Future<Either<Failure, MovieDetails>> getMovieDetails(MovieDetailsParameters parameters);
+  Future<Either<Failure, MovieDetails>> getMovieDetails(
+      MovieDetailsParameters parameters);
 
-  Future<Either<Failure, List<Recomendations>>> getRecomendations();
+  Future<Either<Failure, List<Recommendations>>> getRecommendations(
+      RecommendationsParameters parameters);
 }
