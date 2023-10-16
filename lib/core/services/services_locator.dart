@@ -5,6 +5,7 @@ import 'package:popcorn/movies/domain/repository/base_movies_repository.dart';
 import 'package:popcorn/movies/domain/usecase/get_movie_details_usecase.dart';
 import 'package:popcorn/movies/domain/usecase/get_now_playing_movies_usecase.dart';
 import 'package:popcorn/movies/domain/usecase/get_popular_movies_usecase.dart';
+import 'package:popcorn/movies/domain/usecase/get_recommendations.dart';
 import 'package:popcorn/movies/domain/usecase/get_top_rated_movies_usecase.dart';
 import 'package:popcorn/movies/presentation/controller/movie_details_bloc.dart';
 import 'package:popcorn/movies/presentation/controller/movies_bloc.dart';
@@ -15,7 +16,7 @@ class ServicesLocator {
   void init() {
     ///BLOC
     sl.registerFactory(() => MoviesBloc(sl(), sl(), sl()));
-    sl.registerFactory(() => MovieDetailsBloc(sl()));
+    sl.registerFactory(() => MovieDetailsBloc(sl(), sl()));
 
     ///USE CASE
     sl.registerLazySingleton(
@@ -26,6 +27,8 @@ class ServicesLocator {
         () => GetTopRatedMoviesUseCase(baseMoviesRepository: sl()));
     sl.registerLazySingleton(
         () => GetMovieDetailsUseCase(baseMoviesRepository: sl()));
+    sl.registerLazySingleton(
+        () => GetRecommendationsUseCase(baseMoviesRepository: sl()));
 
     ///Repository
     sl.registerLazySingleton<BaseMoviesRepository>(
