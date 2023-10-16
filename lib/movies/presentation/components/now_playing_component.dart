@@ -8,6 +8,7 @@ import 'package:popcorn/core/services/size_config.dart';
 import 'package:popcorn/core/utils/enums.dart';
 import 'package:popcorn/movies/presentation/controller/movies_bloc.dart';
 import 'package:popcorn/movies/presentation/controller/movies_state.dart';
+import 'package:popcorn/movies/presentation/screens/movie_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class NowPlayingComponent extends StatelessWidget {
@@ -89,7 +90,12 @@ class NowPlayingComponent extends StatelessWidget {
                     return GestureDetector(
                       key: const Key('openMovieMinimalDetail'),
                       onTap: () {
-                        /// TODO : NAVIGATE TO MOVIE DETAILS
+                        print(item.id);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MovieDetailScreen(id: item.id)));
                       },
                       child: Stack(
                         children: [
