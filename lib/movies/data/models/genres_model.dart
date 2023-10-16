@@ -1,4 +1,4 @@
-import 'package:popcorn/movies/domain/entity/geners.dart';
+import 'package:popcorn/movies/domain/entity/genres.dart';
 
 class GenresModel extends Genres {
   const GenresModel({
