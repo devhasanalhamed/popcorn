@@ -10,7 +10,7 @@ class ApiConstants {
 
   ///Functions
   static String movieDetailPath(int movieId) => '$moviePath/$movieId?$apiKey';
-  static String movieRecomendationsPath(int movieId) =>
+  static String recommendationsPath(int movieId) =>
       '$moviePath/$movieId/recommendations?$apiKey';
   static String imageUrl(String path) => '$baseImageUrl$path';
 }
