@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popcorn/core/services/services_locator.dart';
+import 'package:popcorn/core/utils/app_strings.dart';
 import 'package:popcorn/movies/presentation/screens/movies_screen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PopCorn',
+      title: AppStrings.appTitle,
       theme: ThemeData.dark()
           .copyWith(scaffoldBackgroundColor: Colors.grey.shade900),
       home: const MoviesScreen(),
