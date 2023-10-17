@@ -7,7 +7,6 @@ import 'package:popcorn/core/network/api_constants.dart';
 import 'package:popcorn/core/utils/enums.dart';
 import 'package:popcorn/movies/domain/entity/genres.dart';
 import 'package:popcorn/movies/presentation/controller/movie_details_bloc.dart';
-import 'package:popcorn/movies/presentation/screens/dummy.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../core/services/services_locator.dart';
@@ -19,7 +18,6 @@ class MovieDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(id);
     return BlocProvider(
       create: (context) => sl<MovieDetailsBloc>()
         ..add(GetMovieDetailsEvent(id: id))
@@ -239,7 +237,13 @@ class MovieDetailContent extends StatelessWidget {
         builder: (context, state) {
       switch (state.recommendationsState) {
         case RequestState.loading:
-          return const Center(child: CircularProgressIndicator());
+          return SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => const Center(
+                child: Text('Loading'),
+              ),
+            ),
+          );
 
         case RequestState.loaded:
           return SliverGrid(
@@ -274,7 +278,7 @@ class MovieDetailContent extends StatelessWidget {
                   ),
                 );
               },
-              childCount: recommendationDummy.length,
+              childCount: state.recommendations.length,
             ),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 8.0,
