@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:popcorn/core/network/api_constants.dart';
 import 'package:popcorn/core/services/size_config.dart';
+import 'package:popcorn/core/utils/app_strings.dart';
 import 'package:popcorn/core/utils/enums.dart';
 import 'package:popcorn/movies/presentation/controller/movies_bloc.dart';
 import 'package:popcorn/movies/presentation/controller/movies_state.dart';
@@ -140,7 +141,7 @@ class NowPlayingComponent extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 4.0),
                                       Text(
-                                        'Now Playing'.toUpperCase(),
+                                        AppStrings.nowPlaying,
                                         style: const TextStyle(
                                           fontSize: 16.0,
                                           color: Colors.white,

@@ -98,7 +98,7 @@ class TopRatedComponent extends StatelessWidget {
               ),
             );
           case RequestState.error:
-            return const Text('error');
+            return Text(state.nowPlayingMessage);
         }
       },
     );

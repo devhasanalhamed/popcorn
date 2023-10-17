@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:popcorn/core/services/services_locator.dart';
 import 'package:popcorn/core/services/size_config.dart';
+import 'package:popcorn/core/utils/app_strings.dart';
 import 'package:popcorn/movies/presentation/components/now_playing_component.dart';
 import 'package:popcorn/movies/presentation/components/popular_component.dart';
 import 'package:popcorn/movies/presentation/components/top_rated_component.dart';
@@ -36,7 +37,7 @@ class MoviesScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Popular",
+                        AppStrings.popular,
                         style: GoogleFonts.poppins(
                           fontSize: 19,
                           fontWeight: FontWeight.w500,
@@ -53,7 +54,7 @@ class MoviesScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                'See More',
+                                AppStrings.seeMore,
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
@@ -78,7 +79,7 @@ class MoviesScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Top Rated",
+                        AppStrings.topRated,
                         style: GoogleFonts.poppins(
                           fontSize: 19,
                           fontWeight: FontWeight.w500,
@@ -95,7 +96,7 @@ class MoviesScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                'See More',
+                                AppStrings.seeMore,
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),

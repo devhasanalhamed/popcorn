@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:popcorn/core/network/api_constants.dart';
+import 'package:popcorn/core/utils/app_strings.dart';
 import 'package:popcorn/core/utils/enums.dart';
 import 'package:popcorn/movies/domain/entity/genres.dart';
 import 'package:popcorn/movies/presentation/controller/movie_details_bloc.dart';
@@ -163,7 +164,7 @@ class MovieDetailContent extends StatelessWidget {
                         ),
                         const SizedBox(height: 8.0),
                         Text(
-                          'Genres: ${_showGenres(state.movieDetails!.genres)}',
+                          '${AppStrings.genres}: ${_showGenres(state.movieDetails!.genres)}',
                           style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 12.0,
@@ -182,9 +183,9 @@ class MovieDetailContent extends StatelessWidget {
                   child: FadeInUp(
                     from: 20,
                     duration: const Duration(milliseconds: 500),
-                    child: Text(
-                      'More like this'.toUpperCase(),
-                      style: const TextStyle(
+                    child: const Text(
+                      AppStrings.moreLikeThis,
+                      style:  TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1.2,
@@ -240,7 +241,7 @@ class MovieDetailContent extends StatelessWidget {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => const Center(
-                child: Text('Loading'),
+                child: Text(AppStrings.loading),
               ),
             ),
           );
