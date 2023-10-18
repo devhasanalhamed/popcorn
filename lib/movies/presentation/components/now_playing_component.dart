@@ -129,20 +129,20 @@ class NowPlayingComponent extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 16.0),
+                                const Padding(
+                                  padding:  EdgeInsets.only(bottom: 16.0),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const Icon(
+                                       Icon(
                                         Icons.circle,
                                         color: Colors.redAccent,
                                         size: 16.0,
                                       ),
-                                      const SizedBox(width: 4.0),
+                                       SizedBox(width: 4.0),
                                       Text(
                                         AppStrings.nowPlaying,
-                                        style: const TextStyle(
+                                        style:  TextStyle(
                                           fontSize: 16.0,
                                           color: Colors.white,
                                         ),
