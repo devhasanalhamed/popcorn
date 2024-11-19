@@ -11,7 +11,7 @@ import 'package:popcorn/movies/presentation/controller/movies_bloc.dart';
 import 'package:popcorn/movies/presentation/controller/movies_event.dart';
 
 class MoviesScreen extends StatelessWidget {
-  const MoviesScreen({Key? key}) : super(key: key);
+  const MoviesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
