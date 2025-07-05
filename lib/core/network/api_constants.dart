@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class ApiConstants {
   ///Constants
   static String basePath = dotenv.env['BASE_URL']!;
-  static String apiKey = dotenv.env['API_KEY']!;
+  static String apiKey = 'api_key=${dotenv.env['API_KEY']!}';
   static String moviePath = '$basePath/movie';
   static String nowPlayingMoviesPath = '$moviePath/now_playing?$apiKey';
   static String popularMoviesPath = '$moviePath/popular?$apiKey';
