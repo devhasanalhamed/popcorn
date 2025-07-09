@@ -14,6 +14,8 @@ class PopularSeriesComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SeriesBloc, SeriesState>(
+      buildWhen: (previous, current) =>
+          previous.popularState != current.popularState,
       builder: (context, state) {
         switch (state.popularState) {
           case RequestState.loading:

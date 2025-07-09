@@ -14,8 +14,10 @@ class AiringTodaySeriesComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SeriesBloc, SeriesState>(
+      buildWhen: (previous, current) =>
+          previous.airingTodayState != current.airingTodayState,
       builder: (context, state) {
-        switch (state.popularState) {
+        switch (state.airingTodayState) {
           case RequestState.loading:
             return SizedBox(
               height: 400,

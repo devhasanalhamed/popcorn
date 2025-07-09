@@ -14,6 +14,8 @@ class TopRatedSeriesComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SeriesBloc, SeriesState>(
+      buildWhen: (previous, current) =>
+          previous.topRatedState != current.topRatedState,
       builder: (context, state) {
         switch (state.topRatedState) {
           case RequestState.loading:
