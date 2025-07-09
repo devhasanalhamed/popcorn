@@ -1,5 +1,5 @@
 enum RequestState {
   loading,
-  loaded,
+  done,
   error,
 }
