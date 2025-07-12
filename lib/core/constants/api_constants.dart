@@ -24,5 +24,13 @@ class ApiConstants {
   static String popularSeriesPath = '$seriesPath/popular?$apiKey';
   static String topRatedSeriesPath = '$seriesPath/top_rated?$apiKey';
 
+  /// Series Functions
+  static String seriesDetailsPath(int seriesId) =>
+      '$seriesPath/$seriesId?$apiKey';
+
+  static String seriesRecommendationsPath(int seriesId) =>
+      '$seriesPath/$seriesId/recommendations?$apiKey';
+
+  /// Common Functions
   static String imageUrl(String path) => '$baseImageUrl$path';
 }
