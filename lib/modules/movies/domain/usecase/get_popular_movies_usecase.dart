@@ -5,7 +5,7 @@ import 'package:popcorn/modules/movies/data/model/movie_model.dart';
 import 'package:popcorn/modules/movies/domain/repository/base_movies_repository.dart';
 
 class GetPopularMoviesUseCase
-    extends BaseUseCase<List<MovieModel>, NoParameters> {
+    extends BaseUsecase<List<MovieModel>, NoParameters> {
   final BaseMoviesRepository baseMoviesRepository;
 
   GetPopularMoviesUseCase({

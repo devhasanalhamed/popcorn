@@ -6,7 +6,7 @@ import 'package:popcorn/modules/movies/domain/entity/recommendations.dart';
 import 'package:popcorn/modules/movies/domain/repository/base_movies_repository.dart';
 
 class GetRecommendationsUseCase
-    extends BaseUseCase<List<Recommendations>, RecommendationsParameters> {
+    extends BaseUsecase<List<Recommendations>, RecommendationsParameters> {
   final BaseMoviesRepository baseMoviesRepository;
 
   GetRecommendationsUseCase({required this.baseMoviesRepository});

@@ -14,8 +14,11 @@ import 'package:popcorn/modules/series/data/repository/series_repository.dart';
 import 'package:popcorn/modules/series/domain/repository/base_series_repository.dart';
 import 'package:popcorn/modules/series/domain/usecase/get_airing_today_series_usecase.dart';
 import 'package:popcorn/modules/series/domain/usecase/get_popular_series_usecase.dart';
+import 'package:popcorn/modules/series/domain/usecase/get_series_details_usecase.dart';
+import 'package:popcorn/modules/series/domain/usecase/get_series_recommendations_usecase.dart';
 import 'package:popcorn/modules/series/domain/usecase/get_top_reated_series_usecase.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_bloc.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_bloc.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_details_bloc.dart';
 
 // first get an instance
 final sl = GetIt.instance;
@@ -29,6 +32,9 @@ class ServicesLocator {
     /// Series bloc
     sl.registerFactory(
       () => SeriesBloc(sl(), sl(), sl()),
+    );
+    sl.registerFactory(
+      () => SeriesDetailsBloc(sl(), sl()),
     );
 
     /// Movies use case
@@ -52,6 +58,12 @@ class ServicesLocator {
     );
     sl.registerLazySingleton(
       () => GetTopReatedSeriesUsecase(baseSeriesRepository: sl()),
+    );
+    sl.registerLazySingleton(
+      () => GetSeriesDetailsUsecase(baseSeriesRepository: sl()),
+    );
+    sl.registerLazySingleton(
+      () => GetSeriesRecommendationsUsecase(baseSeriesRepository: sl()),
     );
 
     /// Repository

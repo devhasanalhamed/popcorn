@@ -1,10 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:popcorn/core/usecase/base_usecase.dart';
 import 'package:popcorn/core/utils/enums.dart';
 import 'package:popcorn/modules/series/domain/usecase/get_airing_today_series_usecase.dart';
 import 'package:popcorn/modules/series/domain/usecase/get_popular_series_usecase.dart';
 import 'package:popcorn/modules/series/domain/usecase/get_top_reated_series_usecase.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_event.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_state.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_event.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_state.dart';
 
 class SeriesBloc extends Bloc<SeriesEvent, SeriesState> {
   final GetAiringTodaySeriesUsecase getAiringTodaySeriesUsecase;
@@ -17,7 +18,7 @@ class SeriesBloc extends Bloc<SeriesEvent, SeriesState> {
   ) : super(SeriesState()) {
     on<GetAiringTodaySeriesEvent>(
       (event, emit) async {
-        final result = await getAiringTodaySeriesUsecase.execute();
+        final result = await getAiringTodaySeriesUsecase(NoParameters());
         result.fold(
           (l) => emit(state.copyWith(
             airingTodayState: RequestState.error,
@@ -33,7 +34,7 @@ class SeriesBloc extends Bloc<SeriesEvent, SeriesState> {
 
     on<GetPopularSeriesEvent>(
       (event, emit) async {
-        final result = await getPopularSeriesUsecase.execute();
+        final result = await getPopularSeriesUsecase(NoParameters());
         result.fold(
           (l) => emit(state.copyWith(
             popularState: RequestState.error,
@@ -49,7 +50,7 @@ class SeriesBloc extends Bloc<SeriesEvent, SeriesState> {
 
     on<GetTopRatedSeriesEvent>(
       (event, emit) async {
-        final result = await getTopReatedSeriesUsecase.execute();
+        final result = await getTopReatedSeriesUsecase(NoParameters());
         print(result);
         result.fold(
           (l) => emit(state.copyWith(

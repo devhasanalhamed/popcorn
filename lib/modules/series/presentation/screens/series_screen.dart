@@ -5,8 +5,8 @@ import 'package:popcorn/core/services/services_locator.dart';
 import 'package:popcorn/modules/series/presentation/components/airing_today_series_component.dart';
 import 'package:popcorn/modules/series/presentation/components/popular_series_component.dart';
 import 'package:popcorn/modules/series/presentation/components/top_rated_series_component.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_bloc.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_event.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_bloc.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_event.dart';
 
 class SeriesScreen extends StatelessWidget {
   const SeriesScreen({super.key});

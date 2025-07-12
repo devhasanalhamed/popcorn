@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:popcorn/core/constants/api_constants.dart';
 import 'package:popcorn/core/utils/enums.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_bloc.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_state.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_bloc.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_state.dart';
+import 'package:popcorn/modules/series/presentation/screens/series_details_screen.dart';
 
 class AiringTodaySeriesComponent extends StatelessWidget {
   const AiringTodaySeriesComponent({super.key});
@@ -39,7 +40,13 @@ class AiringTodaySeriesComponent extends StatelessWidget {
                     return GestureDetector(
                       key: const Key('openSeriesMinimalDetail'),
                       onTap: () {
-                        /// TODO : NAVIGATE TO MOVIE DETAILS
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SeriesDetailsScreen(
+                                id: item.id,
+                              ),
+                            ));
                       },
                       child: Stack(
                         children: [

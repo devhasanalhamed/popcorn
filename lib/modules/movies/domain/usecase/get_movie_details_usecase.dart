@@ -6,7 +6,7 @@ import 'package:popcorn/modules/movies/domain/entity/movie_details.dart';
 import 'package:popcorn/modules/movies/domain/repository/base_movies_repository.dart';
 
 class GetMovieDetailsUseCase
-    extends BaseUseCase<MovieDetails, MovieDetailsParameters> {
+    extends BaseUsecase<MovieDetails, MovieDetailsParameters> {
   final BaseMoviesRepository baseMoviesRepository;
 
   GetMovieDetailsUseCase({

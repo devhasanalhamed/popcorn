@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:popcorn/core/constants/api_constants.dart';
 import 'package:popcorn/core/utils/enums.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_bloc.dart';
-import 'package:popcorn/modules/series/presentation/controller/bloc/series_state.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_bloc.dart';
+import 'package:popcorn/modules/series/presentation/controller/series_state.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedSeriesComponent extends StatelessWidget {
