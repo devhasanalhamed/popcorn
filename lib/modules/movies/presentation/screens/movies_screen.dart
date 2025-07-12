@@ -21,103 +21,98 @@ class MoviesScreen extends StatelessWidget {
         ..add(GetNowPlayingMoviesEvent())
         ..add(GetPopularMoviesEvent())
         ..add(GetTopRatedMoviesEvent()),
-      child: Scaffold(
-        backgroundColor: Colors.grey.shade900,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            key: const Key('movieScrollView'),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const NowPlayingComponent(),
-                Container(
-                  height: SizeConfig.safeBlockVertical! * 5,
-                  margin: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        AppStrings.popular,
-                        style: GoogleFonts.poppins(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                          letterSpacing: 0.15,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          /// TODO : NAVIGATION TO POPULAR SCREEN
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                AppStrings.seeMore,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16.0,
-                                color: Colors.white,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+      child: SingleChildScrollView(
+        key: const Key('movieScrollView'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const NowPlayingComponent(),
+            Container(
+              height: SizeConfig.safeBlockVertical! * 5,
+              margin: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppStrings.popular,
+                    style: GoogleFonts.poppins(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      letterSpacing: 0.15,
+                    ),
                   ),
-                ),
-                const PopularComponent(),
-                Container(
-                  height: SizeConfig.safeBlockVertical! * 5,
-                  margin: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        AppStrings.topRated,
-                        style: GoogleFonts.poppins(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                          letterSpacing: 0.15,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          /// TODO : NAVIGATION TO Top Rated Movies Screen
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                AppStrings.seeMore,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16.0,
-                                color: Colors.white,
-                              )
-                            ],
+                  InkWell(
+                    onTap: () {
+                      /// TODO : NAVIGATION TO POPULAR SCREEN
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            AppStrings.seeMore,
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16.0,
+                            color: Colors.white,
+                          )
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-                const TopRatedComponent(),
-                SizedBox(height: SizeConfig.safeBlockVertical! * 4),
-              ],
+                ],
+              ),
             ),
-          ),
+            const PopularComponent(),
+            Container(
+              height: SizeConfig.safeBlockVertical! * 5,
+              margin: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppStrings.topRated,
+                    style: GoogleFonts.poppins(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      letterSpacing: 0.15,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      /// TODO : NAVIGATION TO Top Rated Movies Screen
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            AppStrings.seeMore,
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16.0,
+                            color: Colors.white,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const TopRatedComponent(),
+            SizedBox(height: SizeConfig.safeBlockVertical! * 4),
+          ],
         ),
       ),
     );
