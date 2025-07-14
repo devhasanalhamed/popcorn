@@ -1,4 +1,10 @@
 import 'package:get_it/get_it.dart';
+import 'package:popcorn/core/global/theme/controller/theme_bloc.dart';
+import 'package:popcorn/core/global/theme/data/datasource/theme_local_data_source.dart';
+import 'package:popcorn/core/global/theme/data/repository/theme_repository.dart';
+import 'package:popcorn/core/global/theme/domain/usecase/load_theme_data_usecase.dart';
+import 'package:popcorn/core/global/theme/domain/usecase/save_theme_data_usecase.dart';
+import 'package:popcorn/core/services/local_storage_service.dart';
 import 'package:popcorn/modules/movies/data/datasource/movie_remote_data_source.dart';
 import 'package:popcorn/modules/movies/data/repository/movies_repository.dart';
 import 'package:popcorn/modules/movies/domain/repository/base_movies_repository.dart';
@@ -25,6 +31,30 @@ final sl = GetIt.instance;
 
 class ServicesLocator {
   static void init() {
+    /// Theme bloc
+    sl.registerFactory(() => ThemeBloc(
+        loadThemeDataUsecase: sl<LoadThemeDataUsecase>(),
+        saveThemeDataUsecase: sl<SaveThemeDataUsecase>()));
+
+    /// Theme usecaase
+    sl.registerLazySingleton(
+      () => LoadThemeDataUsecase(baseThemeRepository: sl<ThemeRepository>()),
+    );
+    sl.registerLazySingleton(
+      () => SaveThemeDataUsecase(baseThemeRepository: sl<ThemeRepository>()),
+    );
+
+    /// Theme repository
+    sl.registerLazySingleton(
+      () =>
+          ThemeRepository(baseThemeLocalDataSource: sl<ThemeLocalDataSource>()),
+    );
+
+    /// Theme database
+    sl.registerLazySingleton(
+      () => ThemeLocalDataSource(localStorageService: LocalStorageService()),
+    );
+
     /// Movies bloc
     sl.registerFactory(() => MoviesBloc(sl(), sl(), sl()));
     sl.registerFactory(() => MovieDetailsBloc(sl(), sl()));
